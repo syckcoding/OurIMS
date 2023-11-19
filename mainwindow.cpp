@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "email.h"
+#include "register.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->lineEdit_account->setPlaceholderText("请输入用户名");
     ui->lineEdit_password->setPlaceholderText("请输入密码");
+    ui->lineEdit_password->setEchoMode(QLineEdit::Password);
 
     ui->label_logo->setStyleSheet("image: url(:/new/prefix1/Resources/Login/person.png);");
 }
@@ -37,5 +40,14 @@ void MainWindow::resizeEvent(QResizeEvent* event)
 void MainWindow::on_exitButton_clicked()
 {
     QApplication::quit();
+}
+
+
+void MainWindow::on_pushButton_register_clicked()
+{
+    r = new Register(nullptr,this);
+    r->setWindowTitle("注册");
+    r->show();
+    this->hide();
 }
 

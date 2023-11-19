@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Login</class>
- <widget class="QDialog" name="Login">
+ <class>identity_choose</class>
+ <widget class="QDialog" name="identity_choose">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
-    <height>326</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">

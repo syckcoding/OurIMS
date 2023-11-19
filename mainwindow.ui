@@ -371,7 +371,7 @@ border-radius:10px;
 }</string>
          </property>
          <property name="text">
-          <string>确认</string>
+          <string>登录</string>
          </property>
         </widget>
        </item>
@@ -410,6 +410,19 @@ border-radius:10px;
       </spacer>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_register">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>470</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>注册</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
