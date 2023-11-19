@@ -22,6 +22,8 @@ Register::Register(QWidget *parent, QMainWindow* mainwindow) :
 
     ui->lineEdit_password->setEchoMode(QLineEdit::Password);
     ui->lineEdit_password_2->setEchoMode(QLineEdit::Password);
+
+    code = "1234554321";//初始化验证码的值，以防直接注册
 }
 
 void Register::resizeEvent(QResizeEvent* event)
@@ -53,15 +55,12 @@ void Register::on_pushButton_send_clicked()
         QMessageBox::information(NULL,"提示","验证码将在30s内发送至您的邮箱，请耐心等待。");
 
         srand(time(0));
-        code = 1000 + rand() % (9999 - 1000);
+        code = QString::number(1000 + rand() % (9999 - 1000));//生成随机验证码
 
-//        QTime time= QTime::currentTime();
-//        qsrand(time.msec()+time.second()*1000);
-//        code = 1000+qrand() % (9999-1000);    //产生1000~9999以内的随机数
         Smtp smtp("sy_ck_code@163.com","VLZDXHDHUXQKXEHZ");//按照刚才的方法实例化一个smtp对象
         QByteArray recvaddr=recvaddr0.toUtf8();//QString转QByteArray
         QString subject="教务系统注册验证码";
-        QString content="欢迎注册OurIMS，注册验证码为："+QString::number(code);
+        QString content="欢迎注册OurIMS，注册验证码为："+code;
         smtp.send(recvaddr,subject,content);
     }
     else{
@@ -73,5 +72,36 @@ void Register::on_pushButton_confirm_clicked()
 {
     account = ui->lineEdit_email->text();
     password = ui->lineEdit_password->text();
+
+    //添加一个判断，判断账号是否存在
+
+    if(password != ui->lineEdit_password_2->text()){
+        QMessageBox::critical(0,"注册失败","两次密码输入不同");
+        return;
+    }
+    if(code != ui->lineEdit_code->text()){
+        QMessageBox::critical(0,"注册失败","验证码错误");
+        return;
+    }
+    c = new identity_choose();
+    c->show();
+    connect(c, &identity_choose::windowHidden, this, &Register::onIdentityChooseHide);
 }
 
+void Register::onIdentityChooseHide()
+{
+    qDebug() << QString::number(c->choose) ;
+    if(c->getChoose() == 1){
+        QMessageBox::information(0,"注册成功！","欢迎使用OurIMS！");
+        //插入教务数据库
+
+    }else if(c->getChoose() == 2){
+        QMessageBox::information(0,"注册成功！","欢迎使用OurIMS！");
+        //插入教师数据库
+
+    }else if(c->getChoose() == 3){
+        QMessageBox::information(0,"注册成功！","欢迎使用OurIMS！");
+        //插入学生数据库
+    }
+    c->close();
+}

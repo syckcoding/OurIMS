@@ -6,6 +6,8 @@
 #include <QRegularExpression>
 #include <QMessageBox>
 #include "email.h"
+#include "identity_choose.h"
+#include "creatConnection.h"
 
 namespace Ui {
 class Register;
@@ -26,6 +28,8 @@ private slots:
 
     void on_pushButton_confirm_clicked();
 
+    void onIdentityChooseHide();
+
 private:
     Ui::Register *ui;
     QMainWindow* mainwindow;
@@ -33,7 +37,9 @@ private:
 
     QString account;
     QString password;
-    int code;
+    QString code;
+    identity_choose* c;
+
 };
 
 #endif // REGISTER_H

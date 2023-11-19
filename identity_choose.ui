@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>identity_choose</class>
  <widget class="QDialog" name="identity_choose">
@@ -12,6 +13,126 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#identity_choose{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(161, 255, 234, 255), stop:1 rgba(175, 80, 128, 255));
+}</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>90</y>
+     <width>221</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#label{
+	background-color: rgb(184, 255, 253);
+}</string>
+      </property>
+      <property name="text">
+       <string>请选择你的身份：</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="pushButton_admin">
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#pushButton_admin:!hover
+{
+	background-color: rgb(251, 188, 255);
+}
+
+#pushButton_admin:hover{
+	background-color: rgb(184, 255, 253);
+}</string>
+        </property>
+        <property name="text">
+         <string>教务</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_teacher">
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#pushButton_teacher:!hover
+{
+	background-color: rgb(251, 188, 255);
+}
+
+#pushButton_teacher:hover{
+	background-color: rgb(184, 255, 253);
+}</string>
+        </property>
+        <property name="text">
+         <string>教师</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_student">
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#pushButton_student:!hover
+{
+	background-color: rgb(251, 188, 255);
+}
+
+#pushButton_student:hover{
+	background-color: rgb(184, 255, 253);
+}</string>
+        </property>
+        <property name="text">
+         <string>学生</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>

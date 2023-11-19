@@ -1,5 +1,6 @@
 QT       += core gui
 QT       += network
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,6 +18,7 @@ SOURCES += \
     register.cpp
 
 HEADERS += \
+    creatConnection.h \
     email.h \
     identity_choose.h \
     mainwindow.h \
